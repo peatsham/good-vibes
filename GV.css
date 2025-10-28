@@ -1,0 +1,82 @@
+/* body {
+  font-family: "BBH Sans Hegarty", sans-serif;
+} */
+ body {
+  font-family: sans-serif;
+  background-color: #e0e3e4; /* light gray, change to any color you like */
+}
+h1 {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-size: 100px;    /* You can use px, rem, or em */
+  font-weight: lighter;
+  
+  text-align: center;
+  color: rgb(192, 102, 117);
+  margin-top: 10px;   /* move closer */
+  margin-bottom: 0px; /* spacing below */
+}
+h1 {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-size: 100px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+
+  /* Animate text color directly */
+  color: #ffc1e3; /* initial color */
+  animation: colorFade 5s ease-in-out infinite alternate;
+}
+
+/* Keyframes for smooth color change */
+@keyframes colorFade {
+  0%   { color: #ffc1e3; }  /* pink */
+  33%  { color: #d3bfff; }  /* light purple */
+  66%  { color: #a8d0e6; }  /* pastel blue */
+  100% { color: #ffc1e3; }  /* back to pink */
+}
+
+
+h2 {
+  /* font-family: "BBH Sans Hegarty", sans-serif; */
+  font-size: 30px;    /* You can use px, rem, or em */
+  font-weight: lighter;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(46, 11, 153);
+  margin-top: 0px;   /* move closer */
+  margin-bottom: 20px; /* spacing below */
+}
+p {
+  font-size: 1.125rem; /* you can still size it */
+  line-height: 1.5;
+  text-align: center;
+}
+.header {
+  background-color: #84d1ab;
+  position: relative;     /* required for absolute positioning */
+  height: 60px;           /* adjust height as needed */
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 34px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;               /* vertically center */
+  transform: translateY(-50%);
+}
+.header nav a:hover {
+  text-decoration: underline; /* underline appears on hover */
+}
+
+.header nav a.first {
+  left: 33%;              /* 1/3 across the width */
+  transform: translate(-50%, -50%); /* center horizontally and vertically */
+}
+
+.header nav a.second {
+  left: 66%;              /* 2/3 across the width */
+  transform: translate(-50%, -50%);
+}
