@@ -72,7 +72,7 @@ p {
 }
 
 .header nav a.first {
-  left: 33%;              /* 1/3 across the width */
+  left: 50%;              /* 1/3 across the width */
   transform: translate(-50%, -50%); /* center horizontally and vertically */
 }
 
