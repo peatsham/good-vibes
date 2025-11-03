@@ -113,14 +113,28 @@
   <script>
     const stripe = Stripe("pk_test_51SPJkrCc5d4bZZMeTy8Jlhx25aCHaNM4tvvZ8K9GA7uGGgjquk9glUL2wGcI8mMtph2smpXKLFBoNIN2Dxgo0Krw00OsEAy2J4"); // Replace with your Stripe public key
 
+    // function checkout(priceId) {
+    //   stripe.redirectToCheckout({
+    //     lineItems: [{ price: priceId, quantity: 1 }],
+    //     mode: 'payment',
+    //     successUrl: 'https://yourwebsite.com/success.html',
+    //     cancelUrl: 'https://yourwebsite.com/cancel.html'
+    //   });
+    // }
     function checkout(priceId) {
-      stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'payment',
-        successUrl: 'https://yourwebsite.com/success.html',
-        cancelUrl: 'https://yourwebsite.com/cancel.html'
-      });
+  stripe.redirectToCheckout({
+    lineItems: [{ price: priceId, quantity: 1 }],
+    mode: 'payment',
+    successUrl: window.location.origin + '/success.html',
+    cancelUrl: window.location.origin + '/cancel.html'
+  })
+  .then(function (result) {
+    if (result.error) {
+      alert(result.error.message);
     }
+  });
+}
+
   </script>
 
 </body>
