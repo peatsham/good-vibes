@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Good Vibes – Sessions</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,60 +82,14 @@
   <h1>Upcoming Sessions</h1>
 
   <div class="container">
-    <div class="session-box" onclick="checkout('price_1SPKqdCnZYw8uhOpuVgILiDH')">
+    <div class="session-box" onclick="window.location.href='https://buy.stripe.com/4gM6oG8nd0jibVKb7O97G00'">
       <div class="session-title">YOGA NIDRA AND SOUND HEALING</div>
       <div class="session-date">Thursday 28 November, 8:00pm</div>
       <div class="session-description">
-         
         A deep harmonic sound healing journey led by Peter and Natasha.
       </div>
     </div>
-
-    <!-- <div class="session-box" onclick="checkout('price_DEF456')">
-      <div class="session-title">🌿 Harmonic Healing Journey</div>
-      <div class="session-date">Sunday 17 November, 6:30pm</div>
-      <div class="session-description">
-        A meditative exploration through sound and vibration to restore balance and clarity.
-      </div>
-    </div>
-
-    <div class="session-box" onclick="checkout('price_GHI789')">
-      <div class="session-title">🔥 Winter Solstice Ceremony</div>
-      <div class="session-date">Saturday 21 December, 7:00pm</div>
-      <div class="session-description">
-        Celebrate the turning of the year with sacred sound, intention, and renewal.
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Stripe Integration -->
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    const stripe = Stripe("pk_test_51SPJkrCc5d4bZZMeTy8Jlhx25aCHaNM4tvvZ8K9GA7uGGgjquk9glUL2wGcI8mMtph2smpXKLFBoNIN2Dxgo0Krw00OsEAy2J4"); // Replace with your Stripe public key
-
-    // function checkout(priceId) {
-    //   stripe.redirectToCheckout({
-    //     lineItems: [{ price: priceId, quantity: 1 }],
-    //     mode: 'payment',
-    //     successUrl: 'https://yourwebsite.com/success.html',
-    //     cancelUrl: 'https://yourwebsite.com/cancel.html'
-    //   });
-    // }
-    function checkout(priceId) {
-  stripe.redirectToCheckout({
-    lineItems: [{ price: priceId, quantity: 1 }],
-    mode: 'payment',
-    successUrl: window.location.origin + '/success.html',
-    cancelUrl: window.location.origin + '/cancel.html'
-  })
-  .then(function (result) {
-    if (result.error) {
-      alert(result.error.message);
-    }
-  });
-}
-
-  </script>
+  </div>
 
 </body>
 </html>
