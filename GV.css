@@ -1,61 +1,49 @@
-/* body {
-  font-family: "BBH Sans Hegarty", sans-serif;
-} */
- body {
-  font-family: sans-serif;
-  background-color: #e0e3e4; /* light gray, change to any color you like */
-}
-h1 {
-  font-family: "BBH Sans Hegarty", sans-serif;
-  font-size: 100px;    /* You can use px, rem, or em */
-  font-weight: lighter;
-  
+/* === GENERAL PAGE STYLING === */
+body {
+  font-family: 'BBH Sans Hegarty', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e0e3e4;
   text-align: center;
-  color: rgb(192, 102, 117);
-  margin-top: 10px;   /* move closer */
-  margin-bottom: 0px; /* spacing below */
+  color: #333;
 }
-h1 {
-  font-family: "BBH Sans Hegarty", sans-serif;
-  font-size: 100px;
-  font-weight: lighter;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0px;
 
-  /* Animate text color directly */
-  color: #ffc1e3; /* initial color */
+h1 {
+  font-size: 130px;
+  font-weight: lighter;
+  margin: 20px  0px;
+  color: #ffc1e3;
   animation: colorFade 5s ease-in-out infinite alternate;
 }
 
-/* Keyframes for smooth color change */
 @keyframes colorFade {
-  0%   { color: #ffc1e3; }  /* pink */
-  33%  { color: #d3bfff; }  /* light purple */
-  66%  { color: #a8d0e6; }  /* pastel blue */
-  100% { color: #ffc1e3; }  /* back to pink */
+  0%   { color: #ffc1e3; }
+  33%  { color: #d3bfff; }
+  66%  { color: #a8d0e6; }
+  100% { color: #ffc1e3; }
 }
-
 
 h2 {
-  /* font-family: "BBH Sans Hegarty", sans-serif; */
-  font-size: 30px;    /* You can use px, rem, or em */
+  font-size: 28px;
   font-weight: lighter;
-  margin-bottom: 20px;
-  text-align: center;
   color: rgb(46, 11, 153);
-  margin-top: 0px;   /* move closer */
-  margin-bottom: 20px; /* spacing below */
+  /* margin-bottom: 30px; */
 }
+
 p {
-  font-size: 1.125rem; /* you can still size it */
-  line-height: 1.5;
-  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  /* margin: 20px auto ; */
+  /* margin: 5px 0 15px; */
+   margin: 5px auto 35px auto; /* top 5px, bottom 15px, left/right auto to stay centered */
+  max-width: 700px;
 }
+
+/* Header */
 .header {
   background-color: #84d1ab;
-  position: relative;     /* required for absolute positioning */
-  height: 60px;           /* adjust height as needed */
+  height: 60px;
+  position: relative;
 }
 
 .header nav a {
@@ -64,19 +52,76 @@ p {
   font-size: 34px;
   font-weight: bold;
   position: absolute;
-  top: 50%;               /* vertically center */
-  transform: translateY(-50%);
-}
-.header nav a:hover {
-  text-decoration: underline; /* underline appears on hover */
-}
-
-.header nav a.first {
-  left: 50%;              /* 1/3 across the width */
-  transform: translate(-50%, -50%); /* center horizontally and vertically */
-}
-
-.header nav a.second {
-  left: 66%;              /* 2/3 across the width */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Photo styling with backgrounds for gaps */
+/* Shared photo styling */
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background-size: 80%;            /* Zoom level for all photos */
+  background-repeat: no-repeat;
+  background-position: center;     /* Default position */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Individual photos */
+.photo1 {
+  background-image: url("IMG_7351.jpg");
+  background-color: #FFDAB9;       /* peach */
+  background-position: center 70%; 
+}
+
+.photo2 {
+  background-image: url("IMG_7354.PNG");
+  background-color: #87CEEB;       /* sky blue */
+  background-position: center 32%; /* LOWER this number to move image UP */
+}
+
+.photo3 {
+  background-image: url("IMG-20250929-WA0000.jpg");
+  background-color: #b992c1;       /* soft grey */
+  /* adjust if needed: background-position: center 50%; */
+}
+
+/* Captions */
+.caption {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  max-width: 90%;
+  margin: 10px auto 0 auto;
+  padding: 0 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2em; }
+  h2 { font-size: 1.2em; }
+  .caption { font-size: 0.95rem; }
+}
+
