@@ -133,6 +133,18 @@ p {
   background-color: #b992c1;       /* soft grey */
   /* adjust if needed: background-position: center 50%; */
 }
+.photo4 {
+  background-image: url("Screenshot\ 2025-08-05\ at\ 19.46.39.png");
+  background-color: #9cc7c9; /* optional fallback */
+  background-position: center 50%; /* tweak this */
+}
+.small {
+  width: 65%;
+  aspect-ratio: 4 / 3;
+  margin: 40px auto;
+  border-radius: 20px;
+}
+
 
 /* Captions */
 .caption {
