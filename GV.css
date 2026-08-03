@@ -229,3 +229,27 @@ p {
   left: 163px;
   top: 370px;
 }
+.chakra.active {
+  animation: chakraPulse 2s ease-in-out infinite;
+}
+
+@keyframes chakraPulse {
+
+  0% {
+    box-shadow: 0 0 8px red;
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px red,
+      0 0 40px red;
+    transform: scale(1.15);
+  }
+
+  100% {
+    box-shadow: 0 0 8px red;
+    transform: scale(1);
+  }
+
+}
