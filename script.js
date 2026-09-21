@@ -1,50 +1,79 @@
-const rootButton = document.querySelector(".root");
-const rootSound = new Audio("redchakra.mp3");
+const sounds = {
+  crown: "mchakraviolet.mp3",
+  "third-eye": "mchakraindigo.mp3",
+  throat: "mchakrablue.mp3",
+  heart: "mchakragreen.mp3",
+  solar: "mchakrayellow.mp3",
+  sacral: "mchakraorange.mp3",
+  root: "mchakrared.mp3"
+};
 
-rootButton.addEventListener("click", () => {
+// CRITICAL FIX: Limit individual volume to 25% to prevent clipping when layered
+const MAX_VOLUME = 0.25; 
 
-  // Restart the sound if clicked again
-  rootSound.pause();
-  rootSound.currentTime = 0;
+const chakras = document.querySelectorAll(".chakra");
 
-  rootButton.classList.add("active");
+chakras.forEach(chakra => {
+  // Cleaner way to match the class name directly to your sounds object keys
+  const chakraKey = Object.keys(sounds).find(key => chakra.classList.contains(key));
+  if (!chakraKey) return; 
 
-  rootSound.volume = 0;
-  rootSound.play();
+  const soundFile = sounds[chakraKey];
+  const sound = new Audio(soundFile);
 
-  let volume = 0;
+  // Keep track of active intervals for this specific chakra to prevent ghost loops
+  let fadeInterval; 
 
-  // Fade in (0.5 seconds)
-  const fadeIn = setInterval(() => {
-    volume += 0.05;
-    rootSound.volume = Math.min(volume, 1);
+  chakra.addEventListener("click", () => {
+    // Clear any active fade-in or fade-out loops if clicked mid-play
+    clearInterval(fadeInterval);
 
-    if (volume >= 1) {
-      clearInterval(fadeIn);
-    }
-  }, 25);
+    // Restart this chakra if clicked again
+    sound.pause();
+    sound.currentTime = 0;
 
-  // Fade out after 7 seconds
-  setTimeout(() => {
+    // Make it glow
+    chakra.classList.remove("fade-out");
+    chakra.classList.add("active");
 
-    const fadeOut = setInterval(() => {
+    // Start silent
+    sound.volume = 0;
+    sound.play();
 
-      volume -= 0.05;
-      rootSound.volume = Math.max(volume, 0);
+    let currentVolume = 0;
 
-      if (volume <= 0) {
+    // Fade in over 0.5 seconds up to the MAX_VOLUME limit
+    fadeInterval = setInterval(() => {
+      currentVolume += 0.0125; // Slower increment step to match the lower ceiling
+      sound.volume = Math.min(currentVolume, MAX_VOLUME);
 
-        clearInterval(fadeOut);
-
-        rootSound.pause();
-        rootSound.currentTime = 0;
-
-        rootButton.classList.remove("active");
-
+      if (currentVolume >= MAX_VOLUME) {
+        clearInterval(fadeInterval);
       }
+    }, 25);
 
-    }, 20);
+    // Start fade out after 19 seconds
+    setTimeout(() => {
+      // Don't interrupt if the user has clicked it again in the meantime
+      if (!chakra.classList.contains("active")) return; 
 
-  }, 19000);
+      chakra.classList.remove("active");
+      chakra.classList.add("fade-out");
 
+      fadeInterval = setInterval(() => {
+        currentVolume -= 0.0125;
+        sound.volume = Math.max(currentVolume, 0);
+
+        if (currentVolume <= 0) {
+          clearInterval(fadeInterval);
+
+          sound.pause();
+          sound.currentTime = 0;
+
+          chakra.classList.remove("fade-out");
+        }
+      }, 20);
+
+    }, 19000);
+  });
 });

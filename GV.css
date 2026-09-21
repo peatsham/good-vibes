@@ -46,8 +46,8 @@ p {
   background-color: #84d1ab;
   height: 60px;
   display: grid;
-  grid-template-columns: 1.5fr 0.0fr 1.5fr;
-
+  /* grid-template-columns: 1.5fr 0.0fr 1.5fr; */
+grid-template-columns: 1fr 1fr 1fr;
  /* 3 equal columns */
   align-items: center;
   padding: 0 20px;
