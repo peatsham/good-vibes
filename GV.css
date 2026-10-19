@@ -8,10 +8,9 @@ body {
   color: #333;
 }
 
-h1 {
-  font-size: 130px;
+h1 {font-size: 100px;               
   font-weight: lighter;
-  margin: 20px  0px;
+  margin: 10px  0px;
   color: #ffc1e3;
   animation: colorFade 5s ease-in-out infinite alternate;
 }
@@ -30,6 +29,12 @@ h2 {
   /* margin-bottom: 30px; */
 }
 
+h3 {
+  font-size: 18px;
+  font-weight: lighter;
+  color: rgb(11, 153, 30);
+  /* margin-bottom: 30px; */
+}
 p {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -168,7 +173,7 @@ grid-template-columns: 1fr 1fr 1fr;
 
 .chakra-container {
   position: relative;
-  width: 400px;
+  /* width: 400px; */width: 400px;
   margin: 0 auto;
 }
 
